@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
+import Header from "components/header";
 
 const AllUsers = () => {
   return (
-    <div>Users Data/Table</div>
-  )
-}
+    <main className="all-users wrapper">
+      <Header
+        title="Manage Users"
+        description="Filter, sort, and access detailed user profiles"
+      />
+      All users page
+    </main>
+  );
+};
 
-export default AllUsers
+export default AllUsers;
