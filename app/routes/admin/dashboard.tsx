@@ -2,60 +2,14 @@ import React from "react";
 import { dashboardStats, user, allTrips, users} from "../../constants/index";
 import Header from "components/header";
 import { StatsCard, TripCard } from "components";
+import { getUser } from "~/appwrite/auth";
+import type { Route } from './+types/dashboard';
 
 
+export const clientLoader = async () => await getUser();
 
-// const user = { name: "Anurag Singh" };
-
-// const dashboardStats = {
-//   totalUsers: 14261,
-//   usersJoined: { currentMonth: 275, lastMonth: 123 },
-//   totalTrips: 473,
-//   tripsCreated: { currentMonth: 60, lastMonth: 65 },
-//   activeUsers: { total: 120, currentMonth: 40, lastMonth: 25 },
-// };
-
-
-//   const allTrips = [{
-//       id: 1,
-//       name: "Tropical Rewind",
-//       imageUrls: ["/assets/images/sample1.jpg"],
-//       itinerary: [{ location: "Thailand" }],
-//       tags: ["Adventure", "Culture"],
-//       travelStyle: "Solo",
-//       estimatedPrice: "$1,000",
-//     },
-//     {
-//       id: 2,
-//       name: "French Reverie",
-//       imageUrls: ["/assets/images/sample2.jpg"],
-//       itinerary: [{ location: "Paris" }],
-//       tags: ["Relaxation", "Culinary"],
-//       travelStyle: "Family",
-//       estimatedPrice: "$2,000",
-//     },
-//     {
-//       id: 3,
-//       name: "Zen Break",
-//       imageUrls: ["/assets/images/sample3.jpg"],
-//       itinerary: [{ location: "Japan" }],
-//       tags: ["Shopping", "Luxury"],
-//       travelStyle: "Couple",
-//       estimatedPrice: "$3,000",
-//     },
-//     {
-//       id: 4,
-//       name: "Adventure in Westeros",
-//       imageUrls: ["/assets/images/sample4.jpg"],
-//       itinerary: [{ location: "Croatia" }],
-//       tags: ["Historical", "Culture"],
-//       travelStyle: "Friends",
-//       estimatedPrice: "$4,000",
-//     },
-// ];
-
-
-const Dashboard = () => {
+const Dashboard = ({ loaderData }: Route.ComponentProps) => {
+    const user = loaderData as User | null;
   return (
     <main className="dashboard wrapper">
       <Header

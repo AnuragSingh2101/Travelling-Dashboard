@@ -1,7 +1,7 @@
 import {Link, NavLink, useLoaderData, useNavigate} from "react-router";
 import {sidebarItems} from "~/constants";
 import {cn} from "~/lib/utils";
-// import {logoutUser} from "~/appwrite/auth";
+import {logoutUser} from "~/appwrite/auth";
 
 
 
@@ -45,8 +45,8 @@ const NavItems = ({ handleClick }: { handleClick?: () => void}) => {
                     <img src={user?.imageUrl || '/assets/images/david.webp'} alt={user?.name || 'David'} referrerPolicy="no-referrer" />
 
                     <article>
-                        <h2>{user?.name}Anurag Singh</h2>
-                        <p>{user?.email}anuragiiit@gmail.com</p>
+                        <h2>{user?.name}</h2>
+                        <p>{user?.email}</p>
                     </article>
 
                     <button
